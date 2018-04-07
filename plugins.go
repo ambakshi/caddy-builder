@@ -1,8 +1,26 @@
 package caddyhttp
 
 import (
-	// http.prometheus
+	_ "github.com/BTBurke/caddy-jwt"
+	_ "github.com/abiosoft/caddy-git"
+	_ "github.com/caddyserver/dnsproviders/azure"
+	_ "github.com/caddyserver/dnsproviders/googlecloud"
+	_ "github.com/caddyserver/dnsproviders/route53"
+	_ "github.com/caddyserver/forwardproxy"
+	_ "github.com/captncraig/caddy-realip"
+	_ "github.com/captncraig/cors"
+	_ "github.com/coopernurse/caddy-awslambda"
+	_ "github.com/coredns/coredns/plugin"
+	_ "github.com/echocat/caddy-filter"
+	_ "github.com/filebrowser/filebrowser/caddy/filemanager"
+	_ "github.com/filebrowser/filebrowser/caddy/hugo"
+	_ "github.com/hacdias/caddy-minify"
+	_ "github.com/jung-kurt/caddy-cgi"
+	_ "github.com/mastercactapus/caddy-proxyprotocol"
 	_ "github.com/miekg/caddy-prometheus"
-	// http.ipfilter
+	_ "github.com/miquella/caddy-awses"
+	_ "github.com/nicolasazrak/caddy-cache"
 	_ "github.com/pyed/ipfilter"
+	_ "github.com/restic/caddy"
+	_ "github.com/zikes/gopkg"
 )

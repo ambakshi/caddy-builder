@@ -1,7 +1,7 @@
 # Build image
-FROM golang:1.9-alpine as builder
+FROM golang:1.10.1-alpine as builder
 
-ARG CADDY_VERSION="0.10.10"
+ARG CADDY_VERSION="0.10.12"
 
 RUN apk add --no-cache git
 
@@ -9,6 +9,8 @@ RUN apk add --no-cache git
 RUN git clone https://github.com/mholt/caddy -b "v$CADDY_VERSION" /go/src/github.com/mholt/caddy \
     && cd /go/src/github.com/mholt/caddy \
     && git checkout -b "v$CADDY_VERSION"
+
+RUN git clone https://github.com/Azure/azure-sdk-for-go /go/src/github.com/Azure/azure-sdk-for-go
 
 # import plugins
 COPY plugins.go /go/src/github.com/mholt/caddy/caddyhttp/plugins.go
@@ -18,7 +20,7 @@ RUN git clone https://github.com/caddyserver/builds /go/src/github.com/caddyserv
 
 # build caddy
 RUN cd /go/src/github.com/mholt/caddy/caddy \
-    && go get ./... \
+    && go get -v ./... \
     && go run build.go \
     && mv caddy /go/bin
 
