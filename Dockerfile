@@ -1,7 +1,7 @@
 # Build image
 FROM golang:1.10.1-alpine as builder
 
-ARG CADDY_VERSION="0.10.12"
+ARG CADDY_VERSION="0.10.14"
 
 RUN apk add --no-cache git
 
